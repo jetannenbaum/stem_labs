@@ -9,8 +9,8 @@ from time import sleep
 lastTime = 0
 
 # Define the pin for each led
-led1 = Pin(17, Pin.OUT)
-led2 = Pin(18, Pin.OUT)
+led1 = Pin(16, Pin.OUT)
+led2 = Pin(17, Pin.OUT)
 
 # define the pin for the button
 button = Pin(15, Pin.IN, Pin.PULL_DOWN)
