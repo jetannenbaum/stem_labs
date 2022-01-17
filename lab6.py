@@ -16,6 +16,7 @@ strip = Neopixel(NUMBER_PIXELS, STATE_MACHINE, LED_PIN, "GRB")
 strip.brightness(100)
 delay = .1
 
+# Colors from https://www.rapidtables.com/web/color/RGB_Color.html
 white = (255, 255, 255)
 red = (255, 0, 0)
 orange = (255, 165, 0)
