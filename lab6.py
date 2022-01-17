@@ -25,10 +25,10 @@ blue = (0, 0, 255)
 indigo = (75, 0, 130)
 violet = (148, 0,211)
 black = (0, 0, 0)
-rainbow = (black, white, red, orange, yellow, green, blue, indigo, violet, black)
+colors = (black, white, red, orange, yellow, green, blue, indigo, violet, black)
 
 while True:
-    for color in rainbow:
+    for color in colors:
         for i in range(NUMBER_PIXELS):
             strip.set_pixel(i, color)
             strip.show()
