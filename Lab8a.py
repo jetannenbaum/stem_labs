@@ -1,0 +1,26 @@
+# Author: J.E. Tannenbaum
+# Initial Release: 01/29/2022
+# Writing text to a I2C SSD1306 display
+from machine import Pin, I2C
+from ssd1306 import SSD1306_I2C
+import time
+
+i2c=I2C(0,sda=Pin(0), scl=Pin(1), freq=400000)
+oled = SSD1306_I2C(128, 64, i2c)
+ 
+x = 0
+y = 0
+for dir in range(6):
+    step = 1
+    if dir == 1 or dir == 3 or dir == 5:
+        step = -1
+    for z in range(0, 9):
+        oled.fill(0)    
+        oled.show()
+        x += step
+        y += 1
+        oled.text("Hello Esperanza", x, y)
+        oled.show()
+        time.sleep(.25)
+
+
