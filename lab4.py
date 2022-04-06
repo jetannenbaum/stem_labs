@@ -10,16 +10,17 @@ led = PWM(Pin(17))
 # define the pwm frequency
 led.freq(1000)
 
-# Loop from completely off to completely on
-for dutyCycle in range(65535):
-    led.duty_u16(dutyCycle)
-    sleep(0.0005)
+while True:
+    # Loop from completely off to completely on
+    for dutyCycle in range(65535):
+        led.duty_u16(dutyCycle)
+        sleep(0.0009)
 
-print('Full bright!')
+    print('Full bright!')
 
-# Loop from completely on to completely off
-for dutyCycle in range(65535, 0, -1):
-    led.duty_u16(dutyCycle)
-    sleep(0.0005)
+    # Loop from completely on to completely off
+    for dutyCycle in range(65535, 0, -1):
+        led.duty_u16(dutyCycle)
+        sleep(0.0009)
 
-print('Full off!')
+    print('Full off!')

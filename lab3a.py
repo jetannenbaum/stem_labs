@@ -35,4 +35,4 @@ button.irq(trigger=Pin.IRQ_FALLING, handler=buttonPressed)
 
 # Do nothing loop
 while True:
-    sleep(1)
+    sleep(10)

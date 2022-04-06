@@ -1,3 +1,6 @@
+# Author: J.E. Tannenbaum
+# Initial Release: 01/29/2022
+# Drawing lines on a I2C SSD1306 display
 from machine import Pin, I2C, ADC
 from ssd1306 import SSD1306_I2C
 import time
@@ -22,7 +25,7 @@ oled.text('the screen', 0, 40, 1)
 oled.show()
 
 # Define the pin for the reset button
-resetButton = Pin(22, Pin.IN, Pin.PULL_UP)
+resetButton = Pin(16, Pin.IN, Pin.PULL_UP)
 
 # Wait unti the user hits the button to clear the screen and start drawing
 #while resetButton.value() != 1:
@@ -37,8 +40,8 @@ vert = ADC(26)
 horiz = ADC(27)
 
 # Calculate where to start the line
-x = newX = scaled(vert.read_u16(), 0, 65536, 0, 128)
-y = newY = scaled(horiz.read_u16(), 0, 65536, 0, 64)
+x = newX = scaled(vert.read_u16(), 0, 65535, 0, 127)
+y = newY = scaled(horiz.read_u16(), 0, 65535, 0, 63)
 
 # Loop forever
 # Draw the line, look for a reset to clear the screen, and get the new end points for the line
@@ -50,5 +53,5 @@ while True:
         oled.fill(0)
     oled.show()
     time.sleep(.2)
-    newX = 128 - scaled(vert.read_u16(), 0, 65536, 0, 128)
-    newY = scaled(horiz.read_u16(), 0, 65536, 0, 64)
+    newX = 127 - scaled(vert.read_u16(), 0, 65535, 0, 127)
+    newY = scaled(horiz.read_u16(), 0, 65535, 0, 63)

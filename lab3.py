@@ -20,8 +20,8 @@ while True:
 
     # Was the button pressed?
     if button.value():
-    	led1.toggle()
-	    led2.toggle()
+        led1.toggle()
+        led2.toggle()
 
         # This is delay to give time to get finger off the button.  
- 	    sleep(0.5)
+        sleep(0.5)
